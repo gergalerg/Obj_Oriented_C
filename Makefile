@@ -15,6 +15,10 @@ OBJECTS:=$(SOURCES:.c=.o)
 all: $(OBJECTS)
 	$(GCC) $(CFLAGS) $(OBJECTS) -o $(TARGET) 
 
+.PHONY: test
+test: test.o
+	$(GCC) $(CFLAGS) test.o -o test
+
 .PHONY: clean
 clean:
-	rm $(TARGET) $(OBJECTS)
+	rm $(TARGET) $(OBJECTS) test test.o
